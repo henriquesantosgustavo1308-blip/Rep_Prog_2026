@@ -1,47 +1,381 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME-SABER</title>
-    <link rel="stylesheet" href="style.css">
+html {
+scroll-behavior: smooth;
+}
 
-    <style>
-        div {
-            height: 100vh;
-            display: block;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-       
-        img {
-            width: 30%;
-        }
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #f5f7fb;
+color: #172033;
+}
 
-       
-    </style>
+header {
+position: sticky;
+top: 0;
+z-index: 10;
 
-</head>
+```
+display: flex;
+justify-content: space-between;
+align-items: center;
 
-<body>
-    <div id="container">
+padding: 18px 7%;
 
-    <h1><b><u> GAME DO SABER </u></b></h1>
-    <p>NOSSA ESCOLA NOSSO COMPROMISSO</p>
-    <p style="text-align: center;"> <u>O QUE NÓS PODEMOS FAZER PARA TORNAR NOSSA ESCOLA AINDA MELHOR?</u></p>
-   
-    <figure>
-        <img src="ventilador.jpg">
-        <figcaption><b>antes e depois - "ventilador"</b></figcaption>
-    </figure>
+background: #ffffff;
+border-bottom: 1px solid #e5e8ef;
+```
 
-    <p style="text-align: center;"> O cuidade com o patrimônio da escola é responsabilidade <br>
-    de todos os estudantes e funcionários, os bens duráveis são importantes para o desenvolvimento <br>
-    dos estudantes e gera um ambiente melhor para todos os envolvidos.</p>
+}
 
+.logo {
+font-size: 22px;
+font-weight: 900;
+}
 
-</div>
-</body>
-</html>
+nav {
+display: flex;
+gap: 25px;
+}
+
+nav a {
+text-decoration: none;
+color: #172033;
+font-weight: bold;
+}
+
+nav a:hover {
+color: #635bff;
+}
+
+.hero {
+min-height: 650px;
+
+```
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 60px;
+
+padding: 80px 7%;
+
+background:
+    radial-gradient(circle at 80% 20%, #dfe3ff, transparent 35%),
+    linear-gradient(135deg, #ffffff, #eef1ff);
+```
+
+}
+
+.hero-text {
+max-width: 650px;
+}
+
+.tag {
+font-size: 14px;
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+.hero h1 {
+margin: 20px 0;
+
+```
+font-size: clamp(60px, 9vw, 120px);
+line-height: .85;
+font-weight: 1000;
+```
+
+}
+
+.hero h1 span {
+color: #635bff;
+}
+
+.hero p {
+max-width: 550px;
+margin-bottom: 35px;
+
+```
+font-size: 20px;
+line-height: 1.6;
+color: #596274;
+```
+
+}
+
+.botao {
+display: inline-block;
+
+```
+padding: 17px 30px;
+
+background: #635bff;
+color: white;
+
+border-radius: 12px;
+
+text-decoration: none;
+font-weight: bold;
+
+box-shadow: 0 10px 25px #635bff55;
+
+transition: .2s;
+```
+
+}
+
+.botao:hover {
+transform: translateY(-3px);
+}
+
+.hero-card {
+width: 330px;
+padding: 35px;
+
+```
+background: #172033;
+color: white;
+
+border-radius: 25px;
+
+box-shadow: 0 25px 50px #17203333;
+```
+
+}
+
+.controle {
+font-size: 70px;
+margin-bottom: 20px;
+}
+
+.hero-card h2 {
+margin-bottom: 15px;
+font-size: 28px;
+}
+
+.hero-card p {
+color: #c9ceda;
+font-size: 16px;
+}
+
+.problemas {
+padding: 90px 7%;
+}
+
+.titulo {
+text-align: center;
+max-width: 700px;
+margin: auto auto 50px;
+}
+
+.titulo span,
+.missao span {
+color: #635bff;
+font-weight: bold;
+}
+
+.titulo h2 {
+margin: 12px 0;
+font-size: 45px;
+}
+
+.titulo p {
+color: #687184;
+font-size: 18px;
+}
+
+.cards {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 25px;
+max-width: 1100px;
+margin: auto;
+}
+
+.card {
+overflow: hidden;
+
+```
+background: white;
+
+border: 1px solid #e4e7ee;
+border-radius: 20px;
+
+box-shadow: 0 10px 30px #1720330d;
+
+transition: .25s;
+```
+
+}
+
+.card:hover {
+transform: translateY(-7px);
+box-shadow: 0 20px 40px #17203320;
+}
+
+.card img,
+.imagem-placeholder {
+width: 100%;
+height: 250px;
+
+```
+object-fit: cover;
+
+background: #e9ecf7;
+```
+
+}
+
+.imagem-placeholder {
+display: flex;
+align-items: center;
+justify-content: center;
+
+```
+font-size: 80px;
+```
+
+}
+
+.card-conteudo {
+padding: 28px;
+}
+
+.numero {
+color: #635bff;
+font-weight: 900;
+}
+
+.card h3 {
+margin: 8px 0 12px;
+font-size: 27px;
+}
+
+.card p {
+color: #687184;
+line-height: 1.6;
+}
+
+.card button {
+margin-top: 20px;
+
+```
+padding: 12px 18px;
+
+border: 0;
+border-radius: 9px;
+
+background: #172033;
+color: white;
+
+font-weight: bold;
+
+cursor: pointer;
+```
+
+}
+
+.card button:hover {
+background: #635bff;
+}
+
+.missao {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 40px;
+
+```
+margin: 40px 7% 90px;
+padding: 60px;
+
+border-radius: 30px;
+
+background: #172033;
+color: white;
+```
+
+}
+
+.missao div:first-child {
+max-width: 700px;
+}
+
+.missao h2 {
+margin: 15px 0;
+
+```
+font-size: 42px;
+line-height: 1.1;
+```
+
+}
+
+.missao p {
+margin-bottom: 20px;
+
+```
+color: #c9ceda;
+line-height: 1.7;
+```
+
+}
+
+.missao-icon {
+font-size: 100px;
+}
+
+footer {
+padding: 35px;
+text-align: center;
+
+```
+background: #0e1421;
+color: white;
+```
+
+}
+
+footer p:last-child {
+margin-top: 7px;
+color: #9ba3b5;
+}
+
+@media (max-width: 800px) {
+
+```
+header {
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hero {
+    flex-direction: column;
+    text-align: center;
+}
+
+.hero-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.cards {
+    grid-template-columns: 1fr;
+}
+
+.missao {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 25px;
+}
+
+.missao h2 {
+    font-size: 32px;
+}
+```
+
+}
