@@ -1,47 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME-SABER</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game do Saber</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+      padding: 15px;
+      margin: 0;
+      width: 320px; /* Tamanho ideal para janelas de extensões */
+    }
 
-    <style>
-        div {
-            height: 100vh;
-            display: block;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-       
-        img {
-            width: 30%;
-        }
+    h1 {
+      color: #2c3e50;
+      font-size: 20px;
+    }
 
-       
-    </style>
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Organiza em 2 colunas */
+      gap: 10px;
+      margin-top: 15px;
+    }
 
+    .card {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .card p {
+      margin: 5px 0 0 0;
+      font-size: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="container">
 
-    <h1><b><u> GAME DO SABER </u></b></h1>
-    <p>NOSSA ESCOLA NOSSO COMPROMISSO</p>
-    <p style="text-align: center;"> <u>O QUE NÓS PODEMOS FAZER PARA TORNAR NOSSA ESCOLA AINDA MELHOR?</u></p>
-   
-    <figure>
-        <img src="ventilador.jpg">
-        <figcaption><b>antes e depois - "ventilador"</b></figcaption>
-    </figure>
+  <h1>Game do Saber</h1>
+  <p>Confira as imagens do projeto:</p>
 
-    <p style="text-align: center;"> O cuidade com o patrimônio da escola é responsabilidade <br>
-    de todos os estudantes e funcionários, os bens duráveis são importantes para o desenvolvimento <br>
-    dos estudantes e gera um ambiente melhor para todos os envolvidos.</p>
+  <div class="galeria">
+    <div class="card">
+      <img src="foto2.jpg" alt="Foto 2">
+      <p>Foto 2</p>
+    </div>
 
+    <div class="card">
+      <img src="foto3.jpg" alt="Foto 3">
+      <p>Foto 3</p>
+    </div>
 
-</div>
+    <div class="card">
+      <img src="foto4.jpg" alt="Foto 4">
+      <p>Foto 4</p>
+    </div>
+
+    <div class="card">
+      <img src="foto5.jpg" alt="Foto 5">
+      <p>Foto 5</p>
+    </div>
+
+    <div class="card">
+      <img src="foto6.jpg" alt="Foto 6">
+      <p>Foto 6</p>
+    </div>
+
+    <div class="card">
+      <img src="ventilador.jpg" alt="Ventilador">
+      <p>Ventilador</p>
+    </div>
+  </div>
+
 </body>
 </html>
