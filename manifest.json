@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Game do Saber",
+  "version": "1.0",
+  "description": "Programas feitos nas aulas de educação digital",
+  "action": {
+    "default_popup": "index.html"
+  }
+}
