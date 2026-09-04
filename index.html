@@ -2,17 +2,229 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Meu Projeto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game do Saber</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 250px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quiz-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-option {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-option:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .score-board {
+            font-size: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .restart-btn {
+            margin-top: 20px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .restart-btn:hover {
+            background-color: #27ae60;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- COLOQUE OS CÓDIGOS AQUI -->
-    <img src="foto2.jpg" alt="Foto 2">
-    <img src="foto3.jpg" alt="Foto 3">
-    <img src="foto4.jpg" alt="Foto 4">
-    <img src="foto5.jpg" alt="Foto 5">
-    <img src="foto6.jpg" alt="Foto 6">
-    <img src="ventilador.jpg" alt="Ventilador">
+    <div class="quiz-container">
+        <h1>🎮 Game do Saber</h1>
+        
+        <div id="game-box">
+            <div class="img-container">
+                <img id="quiz-image" class="quiz-img" src="" alt="Imagem do Desafio">
+            </div>
 
+            <div id="question" class="question">Carregando pergunta...</div>
+
+            <div id="options" class="options">
+                <!-- As opções serão inseridas via JavaScript -->
+            </div>
+        </div>
+
+        <div id="result-box" class="hidden">
+            <h2>Fim do Jogo! 🎉</h2>
+            <p class="score-board" id="score-text">Você acertou 0 de 6 perguntas.</p>
+            <button class="restart-btn" onclick="iniciarJogo()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script>
+        // Configuração das perguntas usando os nomes exatos das suas imagens
+        const perguntas = [
+            {
+                imagem: 'foto2.jpg',
+                pergunta: 'Pergunta 1: O que representa esta foto?',
+                opcoes: ['Opção A', 'Opção B', 'Opção C', 'Opção D'],
+                respostaCorreta: 0 // Índice da opção correta (0 = primeira opção)
+            },
+            {
+                imagem: 'foto3.jpg',
+                pergunta: 'Pergunta 2: Identifique o elemento na imagem:',
+                opcoes: ['Opção A', 'Opção B', 'Opção C', 'Opção D'],
+                respostaCorreta: 1
+            },
+            {
+                imagem: 'foto4.jpg',
+                pergunta: 'Pergunta 3: Qual é o conceito mostrado aqui?',
+                opcoes: ['Opção A', 'Opção B', 'Opção C', 'Opção D'],
+                respostaCorreta: 2
+            },
+            {
+                imagem: 'foto5.jpg',
+                pergunta: 'Pergunta 4: Observe a foto e escolha a resposta certa:',
+                opcoes: ['Opção A', 'Opção B', 'Opção C', 'Opção D'],
+                respostaCorreta: 0
+            },
+            {
+                imagem: 'foto6.jpg',
+                pergunta: 'Pergunta 5: Selecione o nome correto para esta cena:',
+                opcoes: ['Opção A', 'Opção B', 'Opção C', 'Opção D'],
+                respostaCorreta: 3
+            },
+            {
+                imagem: 'ventilador.jpg',
+                pergunta: 'Pergunta 6: Qual objeto está na foto acima?',
+                opcoes: ['Ventilador', 'Ar Condicionado', 'Computador', 'Lâmpada'],
+                respostaCorreta: 0
+            }
+        ];
+
+        let perguntaAtual = 0;
+        let pontuacao = 0;
+
+        function iniciarJogo() {
+            perguntaAtual = 0;
+            pontuacao = 0;
+            document.getElementById('result-box').classList.add('hidden');
+            document.getElementById('game-box').classList.remove('hidden');
+            carregarPergunta();
+        }
+
+        function carregarPergunta() {
+            const q = perguntas[perguntaAtual];
+            document.getElementById('quiz-image').src = q.imagem;
+            document.getElementById('question').innerText = q.pergunta;
+
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+
+            q.opcoes.forEach((opcao, index) => {
+                const button = document.createElement('button');
+                button.classList.add('btn-option');
+                button.innerText = opcao;
+                button.onclick = () => verificarResposta(index);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function verificarResposta(indexSelecionado) {
+            if (indexSelecionado === perguntas[perguntaAtual].respostaCorreta) {
+                pontuacao++;
+            }
+
+            perguntaAtual++;
+
+            if (perguntaAtual < perguntas.length) {
+                carregarPergunta();
+            } else {
+                mostrarResultado();
+            }
+        }
+
+        function mostrarResultado() {
+            document.getElementById('game-box').classList.add('hidden');
+            document.getElementById('result-box').classList.remove('hidden');
+            document.getElementById('score-text').innerText = `Você acertou ${pontuacao} de ${perguntas.length} perguntas!`;
+        }
+
+        // Inicia o jogo assim que a página carrega
+        iniciarJogo();
+    </script>
 </body>
 </html>
