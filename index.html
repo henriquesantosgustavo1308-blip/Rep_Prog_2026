@@ -1,31 +1,109 @@
-<div class="galeria">
-        <div class="card-foto">
-            <img src="./Minhas Imagens_files/foto2.jpg" alt="Foto 2">
-            <p>Foto 2</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME-SABER</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .galeria-fotos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px 0;
+        }
+
+        .galeria-fotos figure {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .galeria-fotos img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Ajuste para telas menores/celulares */
+        @media (max-width: 768px) {
+            .galeria-fotos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .galeria-fotos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <h1><b><u> GAME DO SABER </u></b></h1>
+        <p>NOSSA ESCOLA NOSSO COMPROMISSO</p>
+        <p style="text-align: center;"> <u>O QUE NÓS PODEMOS FAZER PARA TORNAR NOSSA ESCOLA AINDA MELHOR?</u></p>
+
+        <!-- Grade com as 6 imagens abaixo do texto -->
+        <div class="galeria-fotos">
+            <figure>
+                <img src="ventilador.jpg" alt="Ventilador">
+                <figcaption><b>antes e depois - "ventilador"</b></figcaption>
+            </figure>
+
+            <figure>
+                <img src="foto2.jpg" alt="Foto 2">
+                <figcaption><b>antes e depois - "item 2"</b></figcaption>
+            </figure>
+
+            <figure>
+                <img src="foto3.jpg" alt="Foto 3">
+                <figcaption><b>antes e depois - "item 3"</b></figcaption>
+            </figure>
+
+            <figure>
+                <img src="foto4.jpg" alt="Foto 4">
+                <figcaption><b>antes e depois - "item 4"</b></figcaption>
+            </figure>
+
+            <figure>
+                <img src="foto5.jpg" alt="Foto 5">
+                <figcaption><b>antes e depois - "item 5"</b></figcaption>
+            </figure>
+
+            <figure>
+                <img src="foto6.jpg" alt="Foto 6">
+                <figcaption><b>antes e depois - "item 6"</b></figcaption>
+            </figure>
         </div>
 
-        <div class="card-foto">
-            <img src="./Minhas Imagens_files/foto3.jpg" alt="Foto 3">
-            <p>Foto 3</p>
-        </div>
+        <p style="text-align: center;">
+            O cuidado com o patrimônio da escola é responsabilidade <br>
+            de todos os estudantes e funcionários, os bens duráveis são importantes para o desenvolvimento <br>
+            dos estudantes e gera um ambiente melhor para todos os envolvidos.
+        </p>
 
-        <div class="card-foto">
-            <img src="./Minhas Imagens_files/foto4.jpg" alt="Foto 4">
-            <p>Foto 4</p>
-        </div>
-
-        <div class="card-foto">
-            <img src="./Minhas Imagens_files/foto5.jpg" alt="Foto 5">
-            <p>Foto 5</p>
-        </div>
-
-        <div class="card-foto">
-            <img src="./Minhas Imagens_files/foto6.jpg" alt="Foto 6">
-            <p>Foto 6</p>
-        </div>
-
-        <div class="card-foto">
-            <img src="./Minhas Imagens_files/ventilador.jpg" alt="Ventilador">
-            <p>Ventilador</p>
-        </div>
     </div>
+</body>
+
+</html>
